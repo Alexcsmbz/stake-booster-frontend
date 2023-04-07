@@ -23,6 +23,7 @@ globalStyle('body', {
 globalStyle('html', {
   height: '100%',
   boxSizing: 'border-box',
+  backgroundColor: '#E9F2FF',
 });
 
 globalStyle('*, *::after, *::before', {
@@ -33,6 +34,11 @@ globalStyle('ul', {
   listStyle: 'none',
   padding: 0,
   margin: 0,
+});
+
+globalStyle('a', {
+  textDecoration: 'none',
+  color: '#000',
 });
 
 globalStyle('button', {
