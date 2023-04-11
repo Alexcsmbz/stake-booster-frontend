@@ -6,8 +6,13 @@ import { links, mobileLinks, root } from './header.css';
 import { ReactComponent as Logo } from '../../../assets/images/logo.svg';
 import { Box } from '../box';
 import { Button } from '../button';
+import { ReactComponent as Wallet } from '../../../assets/icons/wallet.svg';
+import { shortenAddress } from '../../../utils/shorten-address';
 
-export const Header: FC = () => (
+export const Header: FC<{
+  onConnectWalletClick: () => void;
+  auth?: WavesKeeper.IAuthResponse;
+}> = ({ onConnectWalletClick, auth }) => (
   <header className={root}>
     <Box display="grid" justifyContent="space-between" alignItems="center">
       <Link to={Route.home.path}>
@@ -27,7 +32,14 @@ export const Header: FC = () => (
               </a>
             </Box>
           </span>
-          <Button>Connect wallet</Button>
+          {auth ? (
+            <Box display="grid" space="sm">
+              <Wallet />
+              {shortenAddress(auth.address)}
+            </Box>
+          ) : (
+            <Button onClick={onConnectWalletClick}>Connect wallet</Button>
+          )}
         </Box>
       </nav>
     </Box>
