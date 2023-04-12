@@ -1,4 +1,4 @@
-import { PageMain } from '../pages/page-main';
+import { PageMain } from '../pages/main/page-main';
 
 export const Route = {
   home: { path: '/', Component: PageMain },

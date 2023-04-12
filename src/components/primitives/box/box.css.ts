@@ -32,22 +32,13 @@ export const justify = styleVariants({
   center: { justifyContent: 'center' },
   start: { justifyContent: 'start' },
   end: { justifyContent: 'end' },
+  stretch: { justifyContent: 'stretch' },
   'space-between': { justifyContent: 'space-between' },
 });
 
 export const adaptivePaddings = style({
-  paddingLeft: theme.space.md,
-  paddingRight: theme.space.md,
-  '@media': {
-    [breakpoints.mobile]: {
-      paddingLeft: theme.space.md,
-      paddingRight: theme.space.md,
-    },
-    [breakpoints.desktop]: {
-      paddingLeft: theme.space.xl,
-      paddingRight: theme.space.xl,
-    },
-  },
+  paddingLeft: theme.space.lg,
+  paddingRight: theme.space.lg,
 });
 
 export const verticalPaddings = styleVariants({
