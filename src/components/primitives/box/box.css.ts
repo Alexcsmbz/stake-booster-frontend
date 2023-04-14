@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { breakpoints, theme } from '../../../themes/main.css';
+import { theme } from '../../../themes/main.css';
 
 export const grid = style({ display: 'grid', justifyContent: 'start' });
 

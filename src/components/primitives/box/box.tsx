@@ -7,7 +7,6 @@ import {
   gap,
   grid,
   justify,
-  verticalPaddings,
 } from './box.css';
 import cx from 'classnames';
 import { Space } from '../../../themes/main.css';

@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 import { root } from './staking-panel.css';
-import { Radio } from '../radio/radio';
-import { Input } from '../input/input';
-import { Button } from '../button';
 import { Box } from '../box';
 
-export const StakingPanel: FC = () => {
+export const StakingPanel: FC<{ name: string; children?: ReactElement }> = ({
+  children,
+  name,
+}) => {
   return (
     <div className={root}>
       <Box
@@ -14,15 +14,8 @@ export const StakingPanel: FC = () => {
         space="xxl"
         justifyContent="stretch"
       >
-        <p>SURF Booster</p>
-        <Box display="grid" direction="vertical" justifyContent="stretch">
-          <Box display="grid" justifyContent="stretch">
-            <Radio checked value="Stake" name="action" />
-            <Radio value="Unstake" name="action" />
-          </Box>
-          <Input />
-          <Button>Stake</Button>
-        </Box>
+        <p style={{ textAlign: 'center' }}>{name}</p>
+        {children}
       </Box>
     </div>
   );

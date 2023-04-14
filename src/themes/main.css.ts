@@ -15,6 +15,7 @@ export const [themeClass, theme] = createTheme({
     'gray-5': '#4E4E4E',
     'gray-6': '#6C6C6C',
     'gray-7': '#727272',
+    'gray-8': '#E3E3E3',
   },
   animation: {
     main: 'all 100ms cubic-bezier(0.4, 0, 0.2, 1)',
