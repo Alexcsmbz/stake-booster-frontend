@@ -1,6 +1,13 @@
 import { FC, ReactElement } from 'react';
-import { root } from './staking-panel.css';
+import {
+  expandIcon,
+  header,
+  headerInfo,
+  root,
+  title,
+} from './staking-panel.css';
 import { Box } from '../box';
+import { ReactComponent as Minus } from '../../../assets/icons/minus.svg';
 
 export const StakingPanel: FC<{ name: string; children?: ReactElement }> = ({
   children,
@@ -14,7 +21,17 @@ export const StakingPanel: FC<{ name: string; children?: ReactElement }> = ({
         space="xxl"
         justifyContent="stretch"
       >
-        <p style={{ textAlign: 'center' }}>{name}</p>
+        <div className={header}>
+          <p className={title}>{name}</p>
+          <div className={headerInfo}>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>160%</p>
+            <p>1,384k</p>
+          </div>
+          <Minus className={expandIcon} />
+        </div>
         {children}
       </Box>
     </div>

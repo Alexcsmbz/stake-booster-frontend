@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { breakpoints, theme } from '../../themes/main.css';
+import { rootStyles as stakingPanelRootStyles } from '../../components/primitives/staking-panel/staking-panel.css';
 
 export const root = style({
   maxWidth: '1056px',
@@ -69,6 +70,11 @@ export const buttonAsLink = style({
 
 export const table = style({
   marginBottom: 36,
+  '@media': {
+    [breakpoints.desktop]: {
+      marginBottom: 0,
+    },
+  },
 });
 
 export const tokensContainer = style({
@@ -89,6 +95,34 @@ export const description = style({
   '@media': {
     [breakpoints.desktop]: {
       marginBottom: 47,
+    },
+  },
+});
+
+export const stakingPanelLayout = style({
+  display: 'grid',
+  gridAutoFlow: 'row',
+  justifyContent: 'stretch',
+  '@media': {
+    [breakpoints.desktop]: {
+      alignItems: 'start',
+      gridTemplateColumns: 'repeat(3, minmax(222px, 1fr))',
+      gridAutoFlow: 'column',
+      gap: 64,
+    },
+  },
+});
+
+export const stakingPanelBackground = style({
+  justifyContent: 'stretch',
+  background: 'transparent',
+  border: 'none',
+  borderRadius: 0,
+  padding: 0,
+  '@media': {
+    [breakpoints.desktop]: {
+      ...stakingPanelRootStyles,
+      padding: '17px 26px 28px 27px',
     },
   },
 });

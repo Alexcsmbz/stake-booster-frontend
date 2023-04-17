@@ -8,6 +8,8 @@ import {
   radioContainer,
   root,
   searchPanel,
+  stakingPanelBackground,
+  stakingPanelLayout,
   tagsContainer,
 } from './page-main.css';
 import {
@@ -23,6 +25,12 @@ import { ReactComponent as Vires } from '../../assets/icons/vires.svg';
 import { ReactComponent as Usdt } from '../../assets/icons/usdt.svg';
 import { Button } from '../../components/primitives/button';
 import { Tile } from '../../components/primitives/tile';
+import {
+  claimedInfoContainer,
+  header as stakingPanelHeader,
+  headerInfo as stakingPanelHeaderInfo,
+  tr,
+} from '../../components/primitives/staking-panel/staking-panel.css';
 
 export const PageMain = () => {
   return (
@@ -58,100 +66,139 @@ export const PageMain = () => {
             <Radio disabled id="BTC" value="BTC" />
           </div>
         </div>
-        <Box display="grid" direction="vertical" space="xl">
-          <StakingPanel name="SURF Booster">
-            <Box display="grid" direction="vertical" justifyContent="stretch">
-              <Box
-                direction="vertical"
-                display="grid"
-                justifyContent="stretch"
-                className={controlsContainer}
+        <Box
+          display="grid"
+          direction="vertical"
+          space="xl"
+          className={stakingPanelBackground}
+        >
+          <div>
+            <div className={stakingPanelHeader} style={{ gap: 10 }}>
+              <div />
+              <div
+                className={stakingPanelHeaderInfo}
+                style={{ paddingBottom: 18 }}
               >
-                <Box display="grid" justifyContent="stretch">
-                  <Radio checked value="Stake" name="action" />
-                  <Radio value="Unstake" name="action" />
-                </Box>
-                <Input />
-                <Button>Stake</Button>
-              </Box>
-              <div className={tilesContainer}>
-                <Tile name="Already claimed" value="0" />
-                <Tile name="Unclaimed" value="0" />
-                <Tile name="My deposits" value="0" />
-                <Tile name="APR" value="160%" />
-                <Tile name="TVL" value="1,384k" />
+                <p>Already claimed</p>
+                <p>Unclaimed</p>
+                <p>My deposits</p>
+                <p>APR</p>
+                <p>TVL</p>
               </div>
-              <p style={{ marginBottom: 35 }}>
-                Stake your SURF tokens and make regular daily auto-arbitrage
-                with boosted gNSBT
-              </p>
-              <button className={buttonAsLink}>Strategy description</button>
-              <table className={table}>
-                <tbody>
-                  <tr>
-                    <td>Total SURF Staked:</td>
-                    <td>300,245,890</td>
-                  </tr>
-                  <tr>
-                    <td>Total earning:</td>
-                    <td>$3,400</td>
-                  </tr>
-                  <tr>
-                    <td>gNSBT:</td>
-                    <td>3,245,370</td>
-                  </tr>
-                  <tr>
-                    <td>Deposit contract:</td>
-                    <td>
-                      <a href="#">link</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Rewards contract:</td>
-                    <td>
-                      <a href="#">link</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1 sSURF = 1 SURF</td>
-                  </tr>
-                  <tr style={{ height: 25 }}></tr>
-                  <tr style={{ height: 25 }}></tr>
-                  <tr>
-                    <td>Already claimed:</td>
-                    <td>$758</td>
-                  </tr>
-                  <tr>
-                    <td>Unclaimed:</td>
-                    <td>$758</td>
-                  </tr>
-                </tbody>
-              </table>
-              <Box
-                className={tokensContainer}
-                display="grid"
-                direction="vertical"
-              >
-                <Box display="grid">
-                  <Waves />
-                  <p>Waves: 0.01</p>
+            </div>
+            <StakingPanel name="SURF Booster">
+              <div className={stakingPanelLayout}>
+                <Box
+                  direction="vertical"
+                  display="grid"
+                  justifyContent="stretch"
+                  className={controlsContainer}
+                >
+                  <Box display="grid" justifyContent="stretch">
+                    <Radio checked value="Stake" name="action" />
+                    <Radio value="Unstake" name="action" />
+                  </Box>
+                  <Input />
+                  <Button>Stake</Button>
                 </Box>
-                <Box display="grid">
-                  <Wx />
-                  <p>WX: 32</p>
-                </Box>
-                <Box display="grid">
-                  <Vires />
-                  <p>Vires: 1</p>
-                </Box>
-                <Box display="grid">
-                  <Usdt />
-                  <p>USDT: 15</p>
-                </Box>
-              </Box>
-              <Button>Claim rewards</Button>
-            </Box>
-          </StakingPanel>
+                <div className={tilesContainer}>
+                  <Tile name="Already claimed" value="0" />
+                  <Tile name="Unclaimed" value="0" />
+                  <Tile name="My deposits" value="0" />
+                  <Tile name="APR" value="160%" />
+                  <Tile name="TVL" value="1,384k" />
+                </div>
+                <div>
+                  <p style={{ marginBottom: 35 }}>
+                    Stake your SURF tokens and make regular daily auto-arbitrage
+                    with boosted gNSBT
+                  </p>
+                  <button className={buttonAsLink}>Strategy description</button>
+                  <table className={table}>
+                    <tbody>
+                      <tr>
+                        <td>Total SURF Staked:</td>
+                        <td>300,245,890</td>
+                      </tr>
+                      <tr>
+                        <td>Total earning:</td>
+                        <td>$3,400</td>
+                      </tr>
+                      <tr>
+                        <td>gNSBT:</td>
+                        <td>3,245,370</td>
+                      </tr>
+                      <tr>
+                        <td>Deposit contract:</td>
+                        <td>
+                          <a href="#">link</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Rewards contract:</td>
+                        <td>
+                          <a href="#">link</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>1 sSURF = 1 SURF</td>
+                      </tr>
+                      <tr className={tr} style={{ height: 25 }}></tr>
+                      <tr className={tr} style={{ height: 25 }}></tr>
+                      <tr className={tr}>
+                        <td>Already claimed:</td>
+                        <td>$758</td>
+                      </tr>
+                      <tr className={tr}>
+                        <td>Unclaimed:</td>
+                        <td>$758</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                  <Box
+                    display="grid"
+                    direction="vertical"
+                    space="md"
+                    className={claimedInfoContainer}
+                  >
+                    <p>Already claimed: $758</p>
+                    <p>Unclaimed: $758</p>
+                  </Box>
+                  <Box
+                    className={tokensContainer}
+                    display="grid"
+                    direction="vertical"
+                  >
+                    <Box display="grid">
+                      <Waves />
+                      <p>Waves: 0.01</p>
+                    </Box>
+                    <Box display="grid">
+                      <Wx />
+                      <p>WX: 32</p>
+                    </Box>
+                    <Box display="grid">
+                      <Vires />
+                      <p>Vires: 1</p>
+                    </Box>
+                    <Box display="grid">
+                      <Usdt />
+                      <p>USDT: 15</p>
+                    </Box>
+                  </Box>
+                  <Box
+                    display="grid"
+                    direction="vertical"
+                    justifyContent="stretch"
+                  >
+                    <Button>Claim rewards</Button>
+                  </Box>
+                </div>
+              </div>
+            </StakingPanel>
+          </div>
           <StakingPanel name="NSBT Booster (soon)" />
           <StakingPanel name="USDT / XTN (soon)" />
         </Box>
