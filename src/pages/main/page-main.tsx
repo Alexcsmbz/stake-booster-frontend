@@ -31,8 +31,12 @@ import {
   headerInfo as stakingPanelHeaderInfo,
   tr,
 } from '../../components/primitives/staking-panel/staking-panel.css';
+import { useState } from 'react';
+import { ModalIntroduction } from '../../components/modals/introduction';
 
 export const PageMain = () => {
+  const [isModalIntroduction, setIsModalIntroduction] = useState(false);
+
   return (
     <Box adaptiveHPaddings>
       <main className={root}>
@@ -113,7 +117,12 @@ export const PageMain = () => {
                     Stake your SURF tokens and make regular daily auto-arbitrage
                     with boosted gNSBT
                   </p>
-                  <button className={buttonAsLink}>Strategy description</button>
+                  <button
+                    onClick={() => setIsModalIntroduction(true)}
+                    className={buttonAsLink}
+                  >
+                    Strategy description
+                  </button>
                   <table className={table}>
                     <tbody>
                       <tr>
@@ -203,6 +212,12 @@ export const PageMain = () => {
           <StakingPanel name="USDT / XTN (soon)" />
         </Box>
       </main>
+      {isModalIntroduction && (
+        <ModalIntroduction
+          isOpen={isModalIntroduction}
+          onClose={() => setIsModalIntroduction(false)}
+        />
+      )}
     </Box>
   );
 };

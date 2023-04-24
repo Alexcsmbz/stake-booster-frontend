@@ -21,6 +21,7 @@ type Props = {
   vPaddings?: Space;
   justifyContent?: keyof typeof justify;
   display?: CSSProperties['display'];
+  onClick?: () => void;
 };
 
 export const Box: FC<Props> = ({
@@ -33,11 +34,13 @@ export const Box: FC<Props> = ({
   children,
   className,
   vPaddings,
+  onClick,
 }) => {
   const displayGrid = display === 'grid';
 
   return (
     <div
+      onClick={onClick}
       className={cx(
         displayGrid ? flow[direction] : '',
         displayGrid ? gap[space] : '',

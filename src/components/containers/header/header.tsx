@@ -1,13 +1,16 @@
 import { FC, useState } from 'react';
 import { Header as PHeader } from '../../primitives/header';
+import { useUser } from '../../../store';
 
 export const Header: FC = () => {
-  const [authData, setAuthData] = useState<WavesKeeper.IAuthResponse>();
+  const [isModalConnectWallet, setIsModalConnectWallet] = useState(false);
+  const { auth } = useUser();
 
-  const connectWallet = async () => {
-    const auth = await KeeperWallet.auth({ data: `${new Date().getTime()}` });
-    setAuthData(auth);
-  };
-
-  return <PHeader auth={authData} onConnectWalletClick={connectWallet} />;
+  return (
+    <PHeader
+      isModalConnectWallet={isModalConnectWallet}
+      setIsModalConnectWallet={setIsModalConnectWallet}
+      auth={auth}
+    />
+  );
 };

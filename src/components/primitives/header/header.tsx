@@ -8,11 +8,13 @@ import { Box } from '../box';
 import { Button } from '../button';
 import { ReactComponent as Wallet } from '../../../assets/icons/wallet.svg';
 import { shortenAddress } from '../../../utils/shorten-address';
+import { ModalConnectWallet } from '../../../components/modals/connect-wallet';
 
 export const Header: FC<{
-  onConnectWalletClick: () => void;
   auth?: WavesKeeper.IAuthResponse;
-}> = ({ onConnectWalletClick, auth }) => (
+  setIsModalConnectWallet: (value: boolean) => void;
+  isModalConnectWallet: boolean;
+}> = ({ auth, isModalConnectWallet, setIsModalConnectWallet }) => (
   <header className={root}>
     <Box display="grid" justifyContent="space-between" alignItems="center">
       <Link to={Route.home.path}>
@@ -38,7 +40,9 @@ export const Header: FC<{
               {shortenAddress(auth.address)}
             </Box>
           ) : (
-            <Button onClick={onConnectWalletClick}>Connect wallet</Button>
+            <Button onClick={() => setIsModalConnectWallet(true)}>
+              Connect wallet
+            </Button>
           )}
         </Box>
       </nav>
@@ -55,5 +59,11 @@ export const Header: FC<{
         </a>
       </Box>
     </span>
+    {isModalConnectWallet && (
+      <ModalConnectWallet
+        isOpen={isModalConnectWallet}
+        onClose={() => setIsModalConnectWallet(false)}
+      />
+    )}
   </header>
 );
