@@ -3,7 +3,7 @@ import { globalStyle, globalFontFace, style } from '@vanilla-extract/css';
 const effra = 'Effra';
 
 globalFontFace(effra, {
-  src: 'url(/public/fonts/Effra.ttf)',
+  src: 'url(/public/fonts/effra.ttf)',
   fontWeight: 500,
   fontStyle: 'normal',
   fontDisplay: 'swap',

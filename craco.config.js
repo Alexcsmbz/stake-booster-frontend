@@ -7,5 +7,14 @@ module.exports = {
     plugins: {
       add: [new VanillaExtractPlugin(), new MiniCssExtractPlugin()],
     },
+    configure: (webpackConfig) => {
+      const scopePluginIndex = webpackConfig.resolve.plugins.findIndex(
+        ({ constructor }) =>
+          constructor && constructor.name === 'ModuleScopePlugin'
+      );
+
+      webpackConfig.resolve.plugins.splice(scopePluginIndex, 1);
+      return webpackConfig;
+    },
   },
 };

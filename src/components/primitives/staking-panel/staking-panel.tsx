@@ -8,11 +8,13 @@ import {
 } from './staking-panel.css';
 import { Box } from '../box';
 import { ReactComponent as Minus } from '../../../assets/icons/minus.svg';
+import { unitParser } from '../../../utils/unit-parser';
 
-export const StakingPanel: FC<{ name: string; children?: ReactElement }> = ({
-  children,
-  name,
-}) => {
+export const StakingPanel: FC<{
+  name: string;
+  userInfo?: { totalSurfStaked: number };
+  children?: ReactElement;
+}> = ({ children, name, userInfo }) => {
   return (
     <div className={root}>
       <Box
@@ -26,9 +28,13 @@ export const StakingPanel: FC<{ name: string; children?: ReactElement }> = ({
           <div className={headerInfo}>
             <p>0</p>
             <p>0</p>
+            <p>
+              {userInfo?.totalSurfStaked
+                ? unitParser.from(userInfo?.totalSurfStaked, 6)
+                : 0}
+            </p>
             <p>0</p>
-            <p>160%</p>
-            <p>1,384k</p>
+            <p>0</p>
           </div>
           <Minus className={expandIcon} />
         </div>

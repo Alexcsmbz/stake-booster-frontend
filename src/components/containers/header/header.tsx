@@ -4,7 +4,7 @@ import { useUser } from '../../../store';
 
 export const Header: FC = () => {
   const [isModalConnectWallet, setIsModalConnectWallet] = useState(false);
-  const { auth } = useUser();
+  const auth = useUser((state) => state.auth);
 
   return (
     <PHeader

@@ -40,7 +40,10 @@ export const Header: FC<{
               {shortenAddress(auth.address)}
             </Box>
           ) : (
-            <Button onClick={() => setIsModalConnectWallet(true)}>
+            <Button
+              buttonSize="small"
+              onClick={() => setIsModalConnectWallet(true)}
+            >
               Connect wallet
             </Button>
           )}

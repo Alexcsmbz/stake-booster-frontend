@@ -12,10 +12,24 @@ export const Footer: FC = () => {
         <Logo />
       </Link>
       <Box display="grid" space="lg" className={links}>
-        <a href="#">Docs</a>
+        <a
+          target="_blank"
+          href="https://stakebooster.gitbook.io/untitled/"
+          rel="noreferrer"
+        >
+          Docs
+        </a>
         <a href="#">GitHub</a>
-        <a href="#">Twitter</a>
-        <a href="#">Telegram</a>
+        <a
+          href="https://twitter.com/stakebooster"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Twitter
+        </a>
+        <a href="https://t.me/StakeBooster" target="_blank" rel="noreferrer">
+          Telegram
+        </a>
       </Box>
       <p>© {new Date().getFullYear()} StakeBooster</p>
     </footer>

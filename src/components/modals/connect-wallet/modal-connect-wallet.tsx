@@ -14,7 +14,7 @@ import { ReactComponent as Keeper } from '../../../assets/icons/keeper.svg';
 import { useUser } from '../../../store';
 
 export const ModalConnectWallet: FC<ModalProps> = (props) => {
-  const { auth, setAuth } = useUser();
+  const { auth, setAuth } = useUser((state) => state);
 
   const connectWallet = async () => {
     const auth = await KeeperWallet.auth({ data: `${new Date().getTime()}` });
