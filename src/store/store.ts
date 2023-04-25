@@ -34,7 +34,7 @@ export const useInfo = create<InfoStore>(
     totalRevenueWaves: 0,
     totalRevenueWX: 0,
     updateInfo: async () => {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}info`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/info`);
       const info = await res.json();
 
       set({ ...info.data });
