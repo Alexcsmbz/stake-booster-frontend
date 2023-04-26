@@ -204,7 +204,7 @@ export const PageMain = () => {
                 <p>TVL</p>
               </div>
             </div>
-            <StakingPanel userInfo={userInfo} name="SURF Booster">
+            <StakingPanel expand userInfo={userInfo} name="SURF Booster">
               <div className={stakingPanelLayout}>
                 <Box
                   direction="vertical"
@@ -233,9 +233,11 @@ export const PageMain = () => {
                     onChange={(e) => setAmount(Number(e.target.value))}
                   />
                   <Button onClick={onSendTx}>{action}</Button>
-                  <Button buttonType="secondary" onClick={onClaimSurf}>
-                    Claim
-                  </Button>
+                  {action === 'Unstake' && (
+                    <Button buttonType="secondary" onClick={onClaimSurf}>
+                      Claim
+                    </Button>
+                  )}
                 </Box>
                 <div className={tilesContainer}>
                   <Tile name="Already claimed" value="0" />
@@ -313,23 +315,23 @@ export const PageMain = () => {
                     direction="vertical"
                   >
                     <Box display="grid">
-                      <Waves />
+                      <Waves width={16} height={16} />
                       <p>Waves: {totalRevenueWaves}</p>
                     </Box>
                     <Box display="grid">
-                      <Wx />
+                      <Wx width={16} height={16} />
                       <p>WX: {totalRevenueWX}</p>
                     </Box>
                     <Box display="grid">
-                      <Vires />
+                      <Vires width={16} height={16} />
                       <p>Vires: 0</p>
                     </Box>
                     <Box display="grid">
-                      <Xtn />
+                      <Xtn width={16} height={16} />
                       <p>XTN: {totalRevenueXtn}</p>
                     </Box>
                     <Box display="grid">
-                      <Usdt />
+                      <Usdt width={16} height={16} />
                       <p>USDT: 0</p>
                     </Box>
                   </Box>
@@ -346,8 +348,8 @@ export const PageMain = () => {
               </div>
             </StakingPanel>
           </div>
-          <StakingPanel name="NSBT Booster (soon)" />
-          <StakingPanel name="USDT / XTN (soon)" />
+          <StakingPanel expand={false} name="NSBT Booster (soon)" />
+          <StakingPanel expand={false} name="USDT / XTN (soon)" />
         </Box>
       </main>
       {isModalIntroduction && (

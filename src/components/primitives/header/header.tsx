@@ -9,6 +9,7 @@ import { Button } from '../button';
 import { ReactComponent as Wallet } from '../../../assets/icons/wallet.svg';
 import { shortenAddress } from '../../../utils/shorten-address';
 import { ModalConnectWallet } from '../../../components/modals/connect-wallet';
+import { theme } from '../../../themes/main.css';
 
 export const Header: FC<{
   auth?: WavesKeeper.IAuthResponse;
@@ -24,7 +25,12 @@ export const Header: FC<{
         <Box display="grid" space="xxl" alignItems="center">
           <span className={links}>
             <Box display="grid" space="xxl" alignItems="center">
-              <a href="#">Governance</a>
+              <a
+                style={{ color: theme.color['gray-4'], cursor: 'not-allowed' }}
+                href="#"
+              >
+                Governance
+              </a>
               <a
                 href="https://stakebooster.gitbook.io/untitled/"
                 target="_blank"
@@ -52,7 +58,12 @@ export const Header: FC<{
     </Box>
     <span className={mobileLinks}>
       <Box display="grid" space="xxl" alignItems="center">
-        <a href="#">Governance (soon)</a>
+        <a
+          style={{ color: theme.color['gray-4'], cursor: 'not-allowed' }}
+          href="#"
+        >
+          Governance (soon)
+        </a>
         <a
           href="https://stakebooster.gitbook.io/untitled/"
           target="_blank"

@@ -59,6 +59,7 @@ export const tilesContainer = style({
 });
 
 export const controlsContainer = style({
+  gap: 20,
   marginBottom: 50,
 });
 

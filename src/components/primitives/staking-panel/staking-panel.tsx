@@ -8,13 +8,16 @@ import {
 } from './staking-panel.css';
 import { Box } from '../box';
 import { ReactComponent as Minus } from '../../../assets/icons/minus.svg';
+import { ReactComponent as Plus } from '../../../assets/icons/plus.svg';
 import { unitParser } from '../../../utils/unit-parser';
+import { theme } from '../../../themes/main.css';
 
 export const StakingPanel: FC<{
   name: string;
   userInfo?: { totalSurfStaked: number };
   children?: ReactElement;
-}> = ({ children, name, userInfo }) => {
+  expand: boolean;
+}> = ({ children, name, userInfo, expand }) => {
   return (
     <div className={root}>
       <Box
@@ -36,7 +39,16 @@ export const StakingPanel: FC<{
             <p>0</p>
             <p>0</p>
           </div>
-          <Minus className={expandIcon} />
+          {expand ? (
+            <Minus width={15} height={15} className={expandIcon} />
+          ) : (
+            <Plus
+              width={15}
+              height={15}
+              stroke={theme.color['gray-7']}
+              className={expandIcon}
+            />
+          )}
         </div>
         {children}
       </Box>

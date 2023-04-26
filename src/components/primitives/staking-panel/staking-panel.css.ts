@@ -64,6 +64,7 @@ export const expandIcon = style({
   '@media': {
     [breakpoints.desktop]: {
       position: 'absolute',
+      display: 'block',
       right: 0,
       top: '50%',
       transform: 'translateY(-50%)',
